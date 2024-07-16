@@ -42,22 +42,26 @@ void DisplayMenu()
         }
         else if (choice == "2")
         {
-            DeleteProduct();
+            //DeleteProduct();
         }
         else if (choice == "3")
         {
-            AddProduct();
+            //AddProduct();
         }
         else if (choice == "4")
         {
-            UpdateProduct();
+            //UpdateProduct();
         }
     }
 }
 
-void DisplayAllProducts(List<Product> products, List<ProductType> productTypes)
+void DisplayAllProducts()
 {
-    throw new NotImplementedException();
+    Console.WriteLine("All products:");
+    for (int i = 0; i < products.Count; i++)
+    {
+        Console.WriteLine($"{products[i].Name} costs {products[i].Price}");
+    }
 }
 
 void DeleteProduct(List<Product> products, List<ProductType> productTypes)
