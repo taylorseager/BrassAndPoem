@@ -42,7 +42,7 @@ void DisplayMenu()
         }
         else if (choice == "2")
         {
-            //DeleteProduct();
+            DeleteProduct();
         }
         else if (choice == "3")
         {
@@ -60,13 +60,25 @@ void DisplayAllProducts()
     Console.WriteLine("All products:");
     for (int i = 0; i < products.Count; i++)
     {
-        Console.WriteLine($"{products[i].Name} costs {products[i].Price}");
+        Console.WriteLine($"{i + 1}. {products[i].Name} costs {products[i].Price}");
     }
 }
 
-void DeleteProduct(List<Product> products, List<ProductType> productTypes)
+void DeleteProduct()
 {
-    throw new NotImplementedException();
+    DisplayAllProducts();
+    Console.WriteLine("Please enter product number to delete:");
+    int chosenIndex;
+    while (!int.TryParse(Console.ReadLine().Trim(), out chosenIndex)) ;
+
+    if (chosenIndex >= 1 && chosenIndex <= products.Count)
+    {
+        int selectedIndex = chosenIndex - 1;
+        var selectedProduct = products[selectedIndex];
+
+        products.Remove(selectedProduct);
+        Console.WriteLine($"{selectedProduct.Name} has been successfully deleted.");
+    }
 }
 
 void AddProduct(List<Product> products, List<ProductType> productTypes)
