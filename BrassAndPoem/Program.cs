@@ -46,7 +46,7 @@ void DisplayMenu()
         }
         else if (choice == "3")
         {
-            //AddProduct();
+            AddProduct();
         }
         else if (choice == "4")
         {
@@ -81,9 +81,20 @@ void DeleteProduct()
     }
 }
 
-void AddProduct(List<Product> products, List<ProductType> productTypes)
+void AddProduct()
 {
-    throw new NotImplementedException();
+    Console.WriteLine("Enter the details for the new product:");
+    Console.WriteLine("Name: ");
+    string name = Console.ReadLine().Trim();
+
+    Console.WriteLine("Asking Price: ");
+    decimal price;
+    while (!decimal.TryParse(Console.ReadLine().Trim(), out price)) ;
+
+    Console.WriteLine($"Product Id:");
+    
+    int productTypeId;
+    while (!int.TryParse(Console.ReadLine().Trim(), out productTypeId)) ;
 }
 
 void UpdateProduct(List<Product> products, List<ProductType> productTypes)
